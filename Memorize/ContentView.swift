@@ -1,8 +1,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["🚗", "🚕", "🚌", "🚎", "🏎️", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚜", "🚲", "🛵", "🛺", "🚔", "🚍", "🚖", "🚃", "🚋", "🚂", "✈️", "🚀", "🛸", "🚁", "🛶", "⛵️", "🚤", "🛳️", "🚈", "🚊", "🚠"]
+    var emojis = [
+        "🚗", "🚕", "🚌", "🚎",
+        "🏎️", "🚓", "🚑", "🚒",
+        "🚐", "🛻", "🚚", "🚜",
+        "🚲", "🛵", "🛺", "🚔",
+        "🚍", "🚖", "🚃", "🚋",
+        "🚂", "✈️", "🚀", "🛸",
+        "🚁", "🛶", "⛵️", "🚤",
+        "🛳️", "🚈", "🚊", "🚠"]
     @State var emojiCount = 20
+
     var body: some View {
         VStack {
             ScrollView(.vertical) {
@@ -21,6 +30,7 @@ struct ContentView: View {
         .foregroundColor(.red)
         .padding()
     }
+
     var add: some View {
         Button {
             if emojiCount < emojis.count {
@@ -46,27 +56,8 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
-
-struct CardView: View {
-    let content: String
-    @State var isFaceUp = true
-    var body: some View {
-        ZStack {
-            let shape = RoundedRectangle(cornerRadius: 20)
-            if isFaceUp {
-                shape.fill(Color.white)
-                shape.strokeBorder(lineWidth: 3)
-                Text(content).font(.largeTitle)
-            } else {
-                shape
-            }
-        }
-        .onTapGesture {
-            isFaceUp.toggle()
-        }
-        .aspectRatio(2/3, contentMode: .fill)
+struct Previews_ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
