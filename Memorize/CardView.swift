@@ -1,10 +1,3 @@
-//
-//  CardView.swift
-//  Memorize
-//
-//  Created by Vladimir Fibe on 26.08.2023.
-//
-
 import SwiftUI
 
 struct CardView: View {
