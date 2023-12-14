@@ -16,8 +16,12 @@ struct CardView: View {
         }
         .onTapGesture {
             isFaceUp.toggle()
-            print("Yes!!!")
         }
         .aspectRatio(2/3, contentMode: .fill)
     }
+}
+
+#Preview {
+    CardView(content: "🐭")
+        .padding(.horizontal, 100)
 }

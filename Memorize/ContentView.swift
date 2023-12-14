@@ -14,50 +14,51 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            ScrollView(.vertical) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 70), spacing: 10)], spacing: 10) {
-                    ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
-                        CardView(content: emoji)
-                    }
-                }
-            }
-            HStack {
-                remove
-                Spacer()
-                add
-            }
+            cards
+
+            cardCountAdjusters
         }
-        .foregroundColor(.red)
         .padding()
     }
 
-    var add: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
+    var cards: some View {
+        ScrollView(.vertical) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 70), spacing: 10)], spacing: 10) {
+                ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+                    CardView(content: emoji)
+                }
             }
-        } label: {
-            Image(systemName: "plus.circle")
-                .imageScale(.large)
+            .foregroundColor(.accent)
         }
-        .disabled(emojiCount == emojis.count)
+    }
+
+    var cardCountAdjusters: some View {
+        HStack {
+            cardRemover
+            Spacer()
+            cardAdder
+        }
+        .imageScale(.large)
+    }
+
+    var cardAdder: some View {
+        cardCountAdjuster(by: 1, symbol: "rectangle.stack.badge.plus.fill")
     }
     
-    var remove: some View {
+    var cardRemover: some View {
+        cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
+    }
+
+    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
         Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
-            }
+            emojiCount += offset
         } label: {
-            Image(systemName: "minus.circle")
-                .imageScale(.large)
+            Image(systemName: symbol)
         }
-        .disabled(emojiCount == 1)
+        .disabled(emojiCount + offset < 1 || emojiCount + offset > emojis.count)
     }
 }
 
-struct Previews_ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
