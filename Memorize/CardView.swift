@@ -15,6 +15,7 @@ struct CardView: View {
                     .font(.system(size: 200))
                     .minimumScaleFactor(0.01)
                     .aspectRatio(contentMode: .fit)
+                    .padding(4)
             } else {
                 shape
             }

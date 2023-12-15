@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    @ObservedObject var viewModel = EmojiMemoryGame()
+    @ObservedObject var viewModel: EmojiMemoryGame
 
     let columns = [GridItem(.adaptive(minimum: 75), spacing: 0)]
 
@@ -18,6 +18,7 @@ struct EmojiMemoryGameView: View {
                     }
                 }
                 .foregroundColor(.red)
+                .animation(.default, value: viewModel.cards)
             }
             .padding()
             .toolbar {
@@ -33,5 +34,5 @@ struct EmojiMemoryGameView: View {
 }
 
 #Preview {
-    EmojiMemoryGameView()
+    EmojiMemoryGameView(viewModel: EmojiMemoryGame())
 }
