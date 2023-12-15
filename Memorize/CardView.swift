@@ -1,27 +1,24 @@
 import SwiftUI
 
 struct CardView: View {
-    let content: String
-    @State var isFaceUp = true
+    private let card: MemoryCard
+    init(_ card: MemoryCard) {
+        self.card = card
+    }
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 12)
-            if isFaceUp {
+            if card.isFaceUp {
                 shape.fill(Color.white)
                 shape.strokeBorder(lineWidth: 2)
-                Text(content).font(.largeTitle)
+                Text(card.content)
+                    .font(.system(size: 200))
+                    .minimumScaleFactor(0.01)
+                    .aspectRatio(contentMode: .fit)
             } else {
                 shape
             }
         }
-        .onTapGesture {
-            isFaceUp.toggle()
-        }
         .aspectRatio(2/3, contentMode: .fill)
     }
-}
-
-#Preview {
-    CardView(content: "🐭")
-        .padding(.horizontal, 100)
 }
