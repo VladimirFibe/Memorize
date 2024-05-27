@@ -26,6 +26,7 @@
 		1DEF3D232A42730D00B05770 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		1DEF3D252A42730F00B05770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DEF3D282A42730F00B05770 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E8A674522C04F0EA002EFBBF /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +44,7 @@
 			isa = PBXGroup;
 			children = (
 				1DC2267B2A43CD4E002864A6 /* README.md */,
+				E8A674522C04F0EA002EFBBF /* Screenshot.png */,
 				1DEF3D202A42730D00B05770 /* Memorize */,
 				1DEF3D1F2A42730D00B05770 /* Products */,
 			);
